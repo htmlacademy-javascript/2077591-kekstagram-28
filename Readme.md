@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
-* Студент: [Рома Белянкин](https://up.htmlacademy.ru/javascript/28/user/2077591).
-* Наставник: `Неизвестно`.
+* Студент: [Роман Белянкин](https://up.htmlacademy.ru/javascript/28/user/2077591).
+* Наставник: [Павел Лукин](https://htmlacademy.ru/profile/id1313529).
 
 ---
 
