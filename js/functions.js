@@ -5,30 +5,36 @@
 имя_функции('проверяемая строка', 10); // Результат: false — строка не проходит
 */
 
-let string = ("проверяемая строка");
-function stringLength(a, len) {
-  return string.length <= len
+function stringLength(string, len) {
+  return string.length <= len;
 }
-const result1 = stringLength(string, 20);
-//console.log(result1);
-const result2 = stringLength(string, 18);
-//console.log(result2);
-const result3 = stringLength(string, 10);
-//console.log(result3);
+stringLength();
+/*
 
-//другие способы
+ проверка
+
+const result1 = stringLength(string, 20);
+console.log(result1);
+const result2 = stringLength(string, 18);
+console.log(result2);
+const result3 = stringLength(string, 10);
+console.log(result3);
+
+
+другой способ
 
 const checkLength = (string, length) => {
-  if (string.length <= length) {
+  if (string.length <= length); {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
 const res = checkLength('проверяемая строка', 20);
-//console.log(res);
+console.log(res);
 
+
+*/
 
 /*
 
@@ -47,7 +53,7 @@ const res = checkLength('проверяемая строка', 20);
 
 
 const isPolindrome = (string) => {
-  const tempString = string.toLocaleLowerCase().replaceAll(' ','');
+  const tempString = string.toLocaleLowerCase().replaceAll(' ', '');
 
   let reversString = '';
   for (let i = tempString - 1; i >= 0; i--) {
@@ -55,8 +61,8 @@ const isPolindrome = (string) => {
   }
   //console.log(reversString);
   return tempString === reversString;
-}
-isPolindrome ('топот');
+};
+isPolindrome('топот');
 
 /*
 
@@ -70,13 +76,15 @@ isPolindrome ('топот');
 
 const extractNumber = (string) => {
   let result = '';
-  for (let i=0; i < string.length; i++) {
-    if (!Number.isNaN(parseInt(string.at(i), 10))) {
-      result += string.at(i);
+  for (let i = 0; i < string.length; i++) {
+    if (!Number.isNaN(parseInt(string.at[i], 10))) {
+      result += string.at[i];
     }
   }
   return parseInt(result, 10);
-}
+};
+
+extractNumber();
 
 /*
 
@@ -111,4 +119,6 @@ const myPadStart = (string, minLenght, pad) => {
 
   return pad.slice(0, actualPad % pad.length) + pad.repeat(actualPad
     / pad.length) + string;
-}
+};
+
+myPadStart();
