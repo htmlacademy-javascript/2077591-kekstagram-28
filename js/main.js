@@ -45,7 +45,7 @@ const getRandomArrayElement = (array) =>
 
 
 const createIdGenerator = () => {
-  const lastGeneratedId = 0;
+  let lastGeneratedId = 0;
 
   return () => {
     lastGeneratedId += 1;
@@ -90,10 +90,10 @@ const createPicture = (index) => ({
 
 //сначала генерируем 25 элементов массива, и далее функция, которая применяется к каждому элементу этого массива
 
-const getPictures = () =>
+const createPictures = () =>
   Array
     .from({ length: pictureCount })
     .map((_, pictureIndex) =>
       createPicture(pictureIndex + 1));
 
-getPictures();
+createPictures();
