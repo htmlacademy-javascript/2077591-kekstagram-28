@@ -1,6 +1,6 @@
-import { getRandomArrayElement } from './util';
-import { getRandomInteger } from './util';
-import { generateCommentId } from './util';
+import { getRandomArrayElement } from './util.js';
+import { getRandomInteger } from './util.js';
+import { generateCommentId } from './util.js';
 
 const pictureCount = 25;
 const avatarCount = 6;
