@@ -1,8 +1,10 @@
 //ищем картинки в коде
 
+import { showBigPicture } from './big-picture.js';
+
 const thumbnailTemplate = document
   .querySelector('#picture')
-  .textContent.querySelector('.picture');
+  .content.querySelector('.picture');
 const container = document.querySelector('.pictures');
 
 
@@ -11,13 +13,18 @@ const createThumbnail = (picture) => {
 
   thumbnail.querySelector('.picture__img').src = picture.url;
   thumbnail.querySelector('.picture__img').alt = picture.description;
-  thumbnail.querySelector('picture__comments').textContent = picture.comments.length;
-  thumbnail.querySelector('picture__likes').textContent = picture.likes;
+  thumbnail.querySelector('.picture__comments').textContent = picture.comments.length;
+  thumbnail.querySelector('.picture__likes').textContent = picture.likes;
+  thumbnail.dataset.thumbnailId = picture.id;
+
+  thumbnail.addEventListener('click', () => showBigPicture(picture.url, picture.likes,
+    picture.comments, picture.description));
 
   return thumbnail;
 };
 
 const renderThumbnails = (pictures) => {
+
   const fragment = document.createDocumentFragment();
   pictures.forEach((picture) => {
     const thumbnail = createThumbnail(picture);
