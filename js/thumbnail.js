@@ -1,5 +1,7 @@
 //ищем картинки в коде
 
+import { showBigPicture } from './big-picture.js';
+
 const thumbnailTemplate = document
   .querySelector('#picture')
   .content.querySelector('.picture');
@@ -14,6 +16,9 @@ const createThumbnail = (picture) => {
   thumbnail.querySelector('.picture__comments').textContent = picture.comments.length;
   thumbnail.querySelector('.picture__likes').textContent = picture.likes;
   thumbnail.dataset.thumbnailId = picture.id;
+
+  thumbnail.addEventListener('click', () => showBigPicture(picture.url, picture.likes,
+    picture.comments, picture.description));
 
   return thumbnail;
 };

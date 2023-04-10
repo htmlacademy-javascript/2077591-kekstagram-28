@@ -4,15 +4,14 @@ const bigPicture = document.querySelector('.big-picture');
 const commentCount = document.querySelector('.social__comment-count');
 const commentList = document.querySelector('.social__comments');
 const commentsLoader = document.querySelector('.comment-loader');
-const body = document.querySelector('body');
 const cancelButton = document.querySelector('.big-picture__cancel');
 
-let commentShown = 0;
+let commentsShown = 0;
 let comments = [];
 
 const createComment = ({ avatar, name, message }) => {
   const comment = document.createElement('li');
-  comment.InnerHTML =
+  comment.innerHTML =
     '<img class="social__picture" src="" alt="" width="35" height="35">';
   comment.classList.add('social__comment');
 
@@ -24,30 +23,30 @@ const createComment = ({ avatar, name, message }) => {
 const renderComments = () => {
   commentsShown += COMMENTS_PER_PORTION;
 
-  if (commentShown >= comments.length) {
-    commentsLoader.classList.Add('hidden');
+  if (commentsShown >= comments.length) {
+    commentsLoader.classList.add('hidden');
     commentsShown = comments.length;
   } else {
     commentsLoader.classList.remove('hidden');
   }
 
   const fragment = document.createDocumentFragment();
-  for (let i = 0; i < commentShown; i++) {
+  for (let i = 0; i < commentsShown; i++) {
     const commentElement = createComment(comments[i]);
     fragment.append(commentElement);
   }
 
   commentList.innerHTML = '';
   commentList.append(fragment);
-  commentCount.InnerHTML = `${commentShown} из <span class="comment">`;
+  commentCount.innerHTML = `${commentsShown} из <span class="comment">`;
 
 };
 
-const hibeBigPicture = () => {
+const hideBigPicture = () => {
   bigPicture.classList.add('hidden');
-  body.classList.remove('modal-open');
+  document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
-  commentShown = 0;
+  commentsShown = 0;
 };
 
 function onDocumentKeydown(evt) {
@@ -58,7 +57,7 @@ function onDocumentKeydown(evt) {
 }
 
 const onCancelButtonClick = () => {
-  hideBigPicture;
+  hideBigPicture();
 };
 
 
@@ -71,7 +70,7 @@ const renderBigPictureDetails = ({ url, likes, description }) => {
 
 const showBigPicture = (data) => {
   bigPicture.classList.remove('hidden');
-  body.classList.add('modal-open');
+  document.body.classList.add('modal-open');
   commentsLoader.classList.add('hidden');
   commentCount.classList.add('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
